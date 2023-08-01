@@ -18,7 +18,7 @@ intents = discord.Intents.default()
 intents.message_content = True
 prefix = os.getenv('PREFIX')
 client = discord.Client(intents=intents)
-niv = niv.RandomVerse()
+n = niv.RandomVerse()
 r = revelation.Revelation()
 @client.event
 async def on_ready():
@@ -64,7 +64,7 @@ async def on_message(message):
     #    await message.add_reaction('☣️')
         
     if message.content.startswith(prefix + 'niv'):
-        verse = niv.pull_verse()
+        verse = n.pull_verse()
         await message.channel.send(verse)
         
     if message.content.startswith(prefix + 'what'):

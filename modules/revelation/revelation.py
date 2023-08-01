@@ -1,5 +1,4 @@
 import random
-import os
 class Revelation:
     def __init__(self):
         pass
