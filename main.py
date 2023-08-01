@@ -1,7 +1,7 @@
 import discord
 import os
 from dotenv import load_dotenv
-from modules import niv
+from modules import niv, revelation
 # you need a .env file i fear
 load_dotenv()
 
@@ -19,6 +19,7 @@ intents.message_content = True
 prefix = os.getenv('PREFIX')
 client = discord.Client(intents=intents)
 niv = niv.RandomVerse()
+r = revelation.Revelation()
 @client.event
 async def on_ready():
     print(f'We have logged in as {client.user}')
@@ -65,5 +66,9 @@ async def on_message(message):
     if message.content.startswith(prefix + 'niv'):
         verse = niv.pull_verse()
         await message.channel.send(verse)
+        
+    if message.content.startswith(prefix + 'what'):
+        revelation = r.generate_revelation()
+        await message.channel.send(revelation)
         
 client.run(os.getenv('TOKEN'))
