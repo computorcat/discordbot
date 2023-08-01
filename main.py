@@ -1,6 +1,7 @@
 import discord
 import os
 from dotenv import load_dotenv
+from modules import niv
 # you need a .env file i fear
 load_dotenv()
 
@@ -17,7 +18,7 @@ intents = discord.Intents.default()
 intents.message_content = True
 prefix = os.getenv('PREFIX')
 client = discord.Client(intents=intents)
-
+niv = niv.RandomVerse()
 @client.event
 async def on_ready():
     print(f'We have logged in as {client.user}')
@@ -60,5 +61,9 @@ async def on_message(message):
     # you can comment this out if you want the people say its chaotic!
     #if "evilbot" in message.content:
     #    await message.add_reaction('☣️')
+        
+    if message.content.startswith(prefix + 'niv'):
+        verse = niv.pull_verse()
+        await message.channel.send(verse)
         
 client.run(os.getenv('TOKEN'))
