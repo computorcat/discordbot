@@ -62,13 +62,19 @@ async def on_message(message):
     # you can comment this out if you want the people say its chaotic!
     #if "evilbot" in message.content:
     #    await message.add_reaction('☣️')
-        
+    
+    # random niv verse
     if message.content.startswith(prefix + 'niv'):
         verse = n.pull_verse()
         await message.channel.send(verse)
-        
-    if message.content.startswith(prefix + 'what'):
-        revelation = r.generate_revelation()
-        await message.channel.send(revelation)
+       
+    # random revelation (5 random words generated form a dictionary - thank you terry davis!) 
+    if message.content.startswith(prefix + 'what') or message.content.startswith(prefix + 'why') or message.content.startswith(prefix + 'how'):
+        question = message.content.split(' ')[2:]
+        if question == []:
+            await message.channel.send("you didn't ask me anything!")
+        else:
+            revelation = r.generate_revelation()
+            await message.channel.send(revelation)
         
 client.run(os.getenv('TOKEN'))
