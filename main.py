@@ -67,6 +67,14 @@ async def on_message(message):
     if message.content.startswith(prefix + 'niv'):
         verse = n.pull_verse()
         await message.channel.send(verse)
+    
+    if message.content.startswith(prefix + 'quran'):
+        verse = n.pull_quran()
+        await message.channel.send(verse)
+        
+    if message.content.startswith(prefix + 'bbq'):
+        verse = n.rand_pull()
+        await message.channel.send(verse)
        
     # random revelation (5 random words generated form a dictionary - thank you terry davis!) 
     if message.content.startswith(prefix + 'what') or message.content.startswith(prefix + 'why') or message.content.startswith(prefix + 'how'):
