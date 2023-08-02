@@ -3,6 +3,7 @@ import os
 from dotenv import load_dotenv
 from modules.revelation import revelation
 from modules.niv import niv
+from modules.dnd import dnd
 # you need a .env file i fear
 load_dotenv()
 
@@ -21,6 +22,7 @@ prefix = os.getenv('PREFIX')
 client = discord.Client(intents=intents)
 n = niv.RandomVerse()
 r = revelation.Revelation()
+d = dnd.Dnd()
 @client.event
 async def on_ready():
     print(f'We have logged in as {client.user}')
@@ -85,5 +87,14 @@ async def on_message(message):
         else:
             revelation = r.generate_revelation()
             await message.channel.send(revelation)
+        
+    if message.content.startswith(prefix + 'roll a'):
+        dice = message.content.split(' ')[3:]
+        print(dice)
+        if dice == []:
+            await message.channel.send("you didn't give me anything to roll!")
+        else:
+            await message.channel.send(d.diceRoll(dice[0]))
+        
         
 client.run(os.getenv('TOKEN'))

@@ -7,3 +7,4 @@
 
 from .niv.niv import RandomVerse
 from .revelation.revelation import Revelation
+from .dnd.dnd import Dnd

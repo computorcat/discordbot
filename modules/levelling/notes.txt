@@ -1,6 +1,2 @@
 every message a member sends, their xp goes up
-every 100 xp, they level up (i cannot be bothered to do the math!)
-what do i need to do: well
-- get a users xp
-- get a users level
-- 
+every 100 xp, they level up (i cannot be bothered to do the complex math stuff so its cooler!)
