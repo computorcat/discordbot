@@ -6,15 +6,15 @@ dependencies in requirements.txt!
 
 ## commands so far
 
-say <message> - self explanatory
+[prefix] say <message> - self explanatory
 
-niv - random bible verse
+[prefix] niv - random bible verse
 
-quran - random quran verse
+[prefix] quran - random quran verse
 
-bbq - random bible or quran verse
+[prefix] bbq - random bible or quran verse
 
-<prefix> <what|why|how> - returns 5 random words
+[prefix] <what|why|how> - returns 5 random words
 
 ## in progress
 
