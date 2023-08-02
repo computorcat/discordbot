@@ -5,5 +5,5 @@
 # leveling system!!
 # revelation - random words put together (they got to mean somethin'!)
 
-from .niv import RandomVerse
-from .revelation import Revelation
+from .niv.niv import RandomVerse
+from .revelation.revelation import Revelation

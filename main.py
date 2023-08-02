@@ -1,7 +1,8 @@
 import discord
 import os
 from dotenv import load_dotenv
-from modules import niv, revelation
+from modules.revelation import revelation
+from modules.niv import niv
 # you need a .env file i fear
 load_dotenv()
 
